@@ -93,7 +93,7 @@ if count_ > mult_:
         for j in range(0, i+1):
             b[i][j], b[i][m-j-1] = b[i][m-j-1], b[i][j]
     for i in range(m//2, m):
-        for j in range(0, m-i-1):
+        for j in range(0, m-i):
             b[i][j], b[i][m-j-1] = b[i][m-j-1], b[i][j]
 else:
     print("Количество чисел, больших К, меньше произведения\n")

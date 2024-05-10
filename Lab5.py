@@ -28,7 +28,7 @@ def rec_f(x):
     if x < 2:
         return 1
     else:
-        return (-1)**int(n*(rec_f(x-1) - rec_g(x-1)/factrial(2*n)))
+        return (-1)**n*(rec_f(x-1) - rec_g(x-1)/factrial(2*n))
 
 lru_cache(maxsize=None)
 def rec_g(x):
@@ -43,7 +43,7 @@ def it_f(x):
     g=[1]*3
     for i in range(2,x+1):
         g[1] = f[0]+g[0] #либо cata_f[0]
-        f[-1] = (-1)**int(n*(f[0] - g[0]/factrial(2*n))) #либо Х
+        f[-1] = (-1)**n*(f[0] - g[0]/factrial(2*n)) #либо Х
         f[0], f[1] = f[1], f[2]
         g[0], g[1] = g[1], g[2]
 
