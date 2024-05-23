@@ -21,10 +21,15 @@ for i in range(k):
     bk.append("Банк №{}".format(i+1))
 
 #функция без встроенных функций питона
+da = 0
 def shufle(sum_, b):
     global a
+    global da
+    if da <= 0:
+        return
     if sum_ == 0:
         a.append(b)
+        da -= 1
         return
     nb = []
     nb.extend(b)  # Питон добавляет массив, изменения в котором изменяют больший
@@ -38,10 +43,16 @@ def shufle(sum_, b):
         shufle(sum_, nb)
 
 bks = []
+d = 0
 def shuflebk(order, bk):
     global bks
+    global d
+    if d <= 0:
+        d = c
+        return
     if len(order) == k:
         if not(order in bks): bks.append(order)
+        d-=1
         return
     for i in bk:
         nbk = []
@@ -56,6 +67,7 @@ a = []
 a.append([1] * k)
 summ -= k
 
+da = c//2
 shufle(summ, a[0])
 a.pop(0)
 
@@ -63,6 +75,7 @@ if ans == '1':
     print("Результат работы собственное функции")
     for i in a:
         bks = []
+        d = c
         shuflebk([], i)
         for j in bks:
             for l in range(k):
